@@ -1,0 +1,21 @@
+[Unit]
+Description=pythonjpbot
+After=network.target
+
+[Service]
+Restart=always
+RuntimeMaxSec=43200
+
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/pythonjp_discordbots/bot
+
+Environment=LANG=en_US.UTF-8
+Environment=DISCORD_BOT_KEYFILE="/home/ubuntu/pythonjp-server-gce1/discordbot_pythonjpbot"
+Environment=GOOGLE_APPLICATION_CREDENTIALS="/home/ubuntu/pythonjp-server-gce1/google-datastore-key-proj-pythonjp-97126fb1bd30.json"
+
+ExecStart=/home/ubuntu/.venv/bin/python -u -m pythonjpbot
+
+[Install]
+WantedBy=multi-user.target
+
