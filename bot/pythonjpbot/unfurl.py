@@ -4,13 +4,13 @@ import discord
 
 DISCORD_URLS = re.compile(
     "https://discord(app)?.com/channels/"
-    r"(?P<server>[\d]{18})/(?P<channel>[\d]{18})/(?P<msg>[\d]{18})"
+    r"(?P<server>[\d]{18})/(?P<channel>[\d]+)/(?P<msg>[\d]+)"
 )
 
 
 def compose_embed(channel: Any, msg: discord.Message) -> discord.Embed:
     embed = discord.Embed(description=msg.content, timestamp=msg.created_at)
-    embed.set_author(name=msg.author.display_name, icon_url=msg.author.avatar_url)
+    embed.set_author(name=msg.author.display_name, icon_url=msg.author.avatar.url)
     embed.set_footer(text=f"via {msg.channel.name}")
     return embed
 

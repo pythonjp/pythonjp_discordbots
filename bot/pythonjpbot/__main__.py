@@ -6,7 +6,7 @@ from . import reactions
 from . import viewattachments
 from . import commands
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.all())
 
 
 async def send_exp(channel):
