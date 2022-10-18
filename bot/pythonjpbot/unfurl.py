@@ -10,7 +10,7 @@ DISCORD_URLS = re.compile(
 
 def compose_embed(channel: Any, msg: discord.Message) -> discord.Embed:
     embed = discord.Embed(description=msg.content, timestamp=msg.created_at)
-    embed.set_author(name=msg.author.display_name, icon_url=msg.author.avatar.url)
+    embed.set_author(name=msg.author.display_name, icon_url=msg.author.display_avatar.url)
     embed.set_footer(text=f"via {msg.channel.name}")
     return embed
 
